@@ -1,4 +1,4 @@
-export type TFormLabelProps = {
+export type TFormTextAreaProps = {
   label: string;
   rows?: number;
   placeholder?: string;
@@ -12,7 +12,7 @@ export const FormTextArea = ({
   placeholder,
   disabled = false,
   ...props
-}: TFormLabelProps) => {
+}: TFormTextAreaProps) => {
   return (
     <div {...props}>
       <p className="mb-2 text-base font-bold text-charcoal-500">{label}</p>

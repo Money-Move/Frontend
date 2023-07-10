@@ -1,17 +1,25 @@
+import Image from 'next/image';
 import type { ReactNode } from 'react';
+
+import { IMAGE_PATH } from '@/utils/constant';
 
 type IMainProps = {
   children: ReactNode;
 };
 
 const Main = (props: IMainProps) => (
-  <div
-    style={{
-      background: `linear-gradient(90deg, rgba(121,40,40,1) 17%, rgba(84,45,115,1) 57%, rgba(25,52,236,1) 82%)`,
-    }}
-    className="fixed"
-  >
-    <header />
+  <div className="h-screen w-screen">
+    <header>
+      <div className="m-5 flex justify-center md:justify-start">
+        <Image
+          src={`${IMAGE_PATH}/money-move.png`}
+          alt=""
+          className="h-24 w-24 object-cover"
+          width={96}
+          height={96}
+        />
+      </div>
+    </header>
     <div>{props.children}</div>
     <footer />
   </div>
