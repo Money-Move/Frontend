@@ -3,13 +3,20 @@ import { FiArrowRight } from 'react-icons/fi';
 import { FormLabel } from '@/components';
 import { FormTextArea } from '@/components/core/FormInput/FormTextArea';
 
+import type { TDropdown } from '../core/FormInput/FormDropdown';
+import { FormDropdown } from '../core/FormInput/FormDropdown';
+
 export type TBeneficiaryInputProps = {
   visibleNextButton: boolean;
+  bankOptions: TDropdown[];
+  currentOptions: TDropdown[];
   onNext: () => void;
 };
 
 export const BeneficiaryInput = ({
   visibleNextButton = true,
+  bankOptions,
+  currentOptions,
   onNext,
 }: TBeneficiaryInputProps) => {
   return (
@@ -21,7 +28,12 @@ export const BeneficiaryInput = ({
         <div className="w-full rounded-lg bg-white px-4 py-5 md:w-1/2">
           <h1 className="mb-5 text-xl font-bold">Beneficiary information</h1>
           <div className="mb-5">
-            <FormLabel label="Bank" className="mb-1" />
+            <FormDropdown
+              label="Bank"
+              className="mb-1"
+              options={bankOptions}
+              placeholder="Choose"
+            />
             <p className=" text-right text-greenLight">
               Only Vietnam are is supported
             </p>
@@ -33,7 +45,12 @@ export const BeneficiaryInput = ({
           <h1 className="mb-5 text-xl font-bold">Transfer information</h1>
           <div className="mb-5 flex gap-5">
             <FormLabel label="Amount" className="w-4/6" />
-            <FormLabel label="Unit" className="w-2/6" />
+            <FormDropdown
+              label="Unit"
+              className="w-2/6"
+              options={currentOptions}
+              placeholder="Choose"
+            />
           </div>
           <FormTextArea label="Description" className="" rows={6} />
         </div>

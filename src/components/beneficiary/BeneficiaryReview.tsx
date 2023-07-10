@@ -2,10 +2,9 @@ import { BeneficiaryItem } from './component';
 
 export type TBeneficiaryReviewProps = {};
 
-// eslint-disable-next-line no-empty-pattern
-export const BeneficiaryReview = ({}: TBeneficiaryReviewProps) => {
+export const BeneficiaryReview = ({ ...props }: TBeneficiaryReviewProps) => {
   return (
-    <div className=" rounded-lg bg-cardTheme p-5 ">
+    <div {...props} className=" rounded-lg bg-cardTheme p-5 ">
       <div className=" flex flex-col   justify-between gap-5 ">
         <div className="w-full rounded-lg bg-white px-4 py-5">
           <h1 className="mb-3 text-xl font-bold">Beneficiary</h1>
